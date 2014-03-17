@@ -1,0 +1,16 @@
+﻿using System.Web.Mvc;
+using System.Web.Mvc.Html;
+
+namespace System.Web.WebPages
+{
+    public static class HtmlHelperExtension
+    {
+        public static MvcHtmlString FlushHead(this HtmlHelper html)
+        {
+            if (html.ViewBag.HeadFlushed != true)
+                return html.Partial("_Head");
+
+            return new MvcHtmlString(string.Empty);
+        }
+    }
+}
