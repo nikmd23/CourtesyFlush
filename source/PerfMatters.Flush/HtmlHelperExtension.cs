@@ -7,7 +7,7 @@ namespace System.Web.WebPages
     {
         public static MvcHtmlString FlushHead(this HtmlHelper html)
         {
-            if (html.ViewBag.HeadFlushed != true)
+            if (!html.ViewData.ContainsKey("HeadFlushed"))
                 return html.Partial("_Head");
 
             return new MvcHtmlString(string.Empty);
