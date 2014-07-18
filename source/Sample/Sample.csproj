@@ -164,9 +164,9 @@
     <Content Include="Scripts\jquery-2.1.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PerfMatters.Flush\PerfMatters.Flush.csproj">
+    <ProjectReference Include="..\CourtesyFlush\CourtesyFlush.csproj">
       <Project>{2e5c96b4-2076-498a-bc88-54c7b57eaa28}</Project>
-      <Name>PerfMatters.Flush</Name>
+      <Name>CourtesyFlush</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

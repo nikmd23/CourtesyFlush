@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace PerfMatters.Flush
+namespace CourtesyFlush
 {
     public class FlushHeadAttribute : ActionFilterAttribute
     {

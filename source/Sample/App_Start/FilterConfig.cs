@@ -1,6 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using PerfMatters.Flush;
+using CourtesyFlush;
 
 namespace Sample
 {

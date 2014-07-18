@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Web.Mvc;
-using PerfMatters.Flush;
+using CourtesyFlush;
 
 namespace Sample.Controllers
 {

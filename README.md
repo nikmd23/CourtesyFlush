@@ -1,17 +1,15 @@
 PerfMatters.Flush
 =================
 
-The source for my PerfMatters.Flush NuGet package.
+The source for my CourtesyFlush NuGet package.
 
 ## Installation
 
-`PerfMatters.Flush` can be installed via NuGet:
+`CourtesyFlush` can be installed via NuGet:
 
 ```
-Install-Package PerfMatters.Flush -Pre
+Install-Package CourtesyFlush
 ```
-
-**NOTE**: `PerfMatters.Flush` is currently an alpha version pre-release. You must specify the `-Pre` option to install.
 
 ## Setup
 
@@ -20,7 +18,7 @@ Install-Package PerfMatters.Flush -Pre
  - Place a call to `@Html.FlushHead()` at the top of `_Layout`. This will ensure that the layout is still usable on action methods that don't flush, as shown below. 
 
 ## Usage
-There are two ways to use `PerfMatters.Flush`:
+There are two ways to use `CourtesyFlush`:
 
  1. Leverage the `[FlushHead]` action method attribute:
 

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace PerfMatters.Flush
+namespace CourtesyFlush
 {
     public static class ControllerBaseExtension
     {
