@@ -5,12 +5,16 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "source\Sample\Sample.csproj", "{CB2754CE-C506-43FB-A5BF-9429D0AA356E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfMatters.Flush", "source\PerfMatters.Flush\PerfMatters.Flush.csproj", "{2E5C96B4-2076-498A-BC88-54C7B57EAA28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourtesyFlush", "source\CourtesyFlush\CourtesyFlush.csproj", "{2E5C96B4-2076-498A-BC88-54C7B57EAA28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FDA78905-EF3D-4A86-B7A0-87DB2CC31C33}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy Support", "Legacy Support", "{401F549F-3876-4F69-9DF8-E002EDDEE8A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourtesyFlush.Net40", "source\CourtesyFlush.Net40\CourtesyFlush.Net40.csproj", "{696B3BC7-AF42-4D66-A21D-CBC01457101F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +30,15 @@ Global
 		{2E5C96B4-2076-498A-BC88-54C7B57EAA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E5C96B4-2076-498A-BC88-54C7B57EAA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E5C96B4-2076-498A-BC88-54C7B57EAA28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{696B3BC7-AF42-4D66-A21D-CBC01457101F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696B3BC7-AF42-4D66-A21D-CBC01457101F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696B3BC7-AF42-4D66-A21D-CBC01457101F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696B3BC7-AF42-4D66-A21D-CBC01457101F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{696B3BC7-AF42-4D66-A21D-CBC01457101F} = {401F549F-3876-4F69-9DF8-E002EDDEE8A0}
 	EndGlobalSection
 EndGlobal
