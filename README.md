@@ -1,9 +1,9 @@
 CourtesyFlush
 =================
 
-![CourtesyFlush](https://raw.githubusercontent.com/nikmd23/CourtesyFlush/master/banner.jpg)
+A library to simplify flushing HTTP responses early in ASP.NET MVC.
 
-The source for my CourtesyFlush NuGet package.
+![CourtesyFlush](https://raw.githubusercontent.com/nikmd23/CourtesyFlush/master/banner.jpg)
 
 ## Installation
 
@@ -13,44 +13,16 @@ The source for my CourtesyFlush NuGet package.
 Install-Package CourtesyFlush
 ```
 
-## Setup
+## Why Flush Early?
 
- - Create a partial view named `_Head` and place it somewhere in your `Views` folder. (Usually in `Shared`)
- - Cut everything from `_Layout` that you want to flush early and place it in `_Head`.
- - Place a call to `@Html.FlushHead()` at the top of `_Layout`. This will ensure that the layout is still usable on action methods that don't flush, as shown below. 
+Flushing early can provide performance improvements in web applications and has been [a recomended best practice in the web performance community since 2007](http://stevesouders.com/hpws/).
+
+To find out more, check out my blog where I covered the benefits of flushing early in two posts:
+
+- [Flushing in ASP.NET MVC](http://nikcodes.com/2014/03/04/flushing-in-asp-net-mvc/)
+- [More HTTP Flushing in ASP.NET MVC](http://nikcodes.com/2014/03/17/more-http-flushing-in-asp-net-mvc/)
 
 ## Usage
-There are two ways to use `CourtesyFlush`:
+`CourtesyFlush` is easy to use. It builds on top of common ASP.NET MVC Action Filter functionality.
 
- 1. Leverage the `[FlushHead]` action method attribute:
-
-    ```c#
-	[FlushHead(Title = "Welcome to my site")]
-	public ActionResult Index()
-	{
-    	// do some work to generate model
-		var model = ...;
-
-		return View(model);
-	}
-    ```
-
-   The `[FlushHead]` attribute has an optional `Title` property, which will populate `@ViewBag.Title` in your view.
-
- 2. For more advanced scenarios, use the `FlushHead()` extension method:
-
-    
-	```c#
-	public ActionResult Index()
-	{
-		ViewBag.Foo = "Bar";
-		this.FlushHead(title: "Welcome to my site");
-
-    	// do some work to generate model
-		var model = ...;
-
-		return View(model);
-	}
-    ```
-
-    The `FlushHead()` method automatically copies over any ViewData/ViewBag state, accepts an optional `title` parameter as well an optional `model` parameter, if required.
+A full writeup of [how to use `CourtesyFlush` is availble on my blog](http://nikcodes.com/2014/06/23/perfmatters-flush-goes-1-0/).
