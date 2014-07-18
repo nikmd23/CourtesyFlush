@@ -7,8 +7,8 @@
     <ProjectGuid>{696B3BC7-AF42-4D66-A21D-CBC01457101F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CourtesyFlush.Net40</RootNamespace>
-    <AssemblyName>CourtesyFlush.Net40</AssemblyName>
+    <RootNamespace>CourtesyFlush</RootNamespace>
+    <AssemblyName>CourtesyFlush</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
