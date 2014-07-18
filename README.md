@@ -1,5 +1,7 @@
-PerfMatters.Flush
+CourtesyFlush
 =================
+
+![CourtesyFlush](https://raw.githubusercontent.com/nikmd23/CourtesyFlush/master/banner.jpg)
 
 The source for my CourtesyFlush NuGet package.
 
