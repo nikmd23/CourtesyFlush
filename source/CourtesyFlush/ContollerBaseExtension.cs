@@ -15,20 +15,20 @@ namespace CourtesyFlush
 
         public static void FlushHead(this ControllerBase controller)
         {
-            FlushHead(controller, null, null);
+            FlushHead(controller, null, null, null);
         }
 
         public static void FlushHead(this ControllerBase controller, string title)
         {
-            FlushHead(controller, title, null);
+            FlushHead(controller, title, null, null);
         }
 
         public static void FlushHead(this ControllerBase controller, object model)
         {
-            FlushHead(controller, null, model);
+            FlushHead(controller, null, model, null);
         }
 
-        public static void FlushHead(this ControllerBase controller, string title, object model)
+        public static void FlushHead(this ControllerBase controller, string title, object model, string headername)
         {
             if (title != null)
                 controller.ViewBag.Title = title;
@@ -36,9 +36,12 @@ namespace CourtesyFlush
             if (model != null)
                 controller.ViewData.Model = model;
 
+            if (String.IsNullOrWhiteSpace(headername))
+                headername = "_Head";
+
             var partialViewResult = new PartialViewResult
             {
-                ViewName = "_Head",
+                ViewName = headername,
                 ViewData = controller.ViewData,
                 TempData = controller.TempData,
             };
@@ -50,12 +53,12 @@ namespace CourtesyFlush
 #if NET45
         internal const string FlushedAntiForgeryTokenKey = "_FlushedAntiForgeryToken";
 
-        public static void FlushHead(this ControllerBase controller, string title, object model, bool flushAntiForgeryToken)
+        public static void FlushHead(this ControllerBase controller, string title, object model, bool flushAntiForgeryToken, string headername)
         {
             if (flushAntiForgeryToken) 
                 WriteForgeryToken(controller);
 
-            FlushHead(controller, title, model);
+            FlushHead(controller, title, model, headername);
         }
 
         private static void WriteForgeryToken(ControllerBase controller)

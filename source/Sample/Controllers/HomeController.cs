@@ -18,6 +18,8 @@ namespace Sample.Controllers
             return View();
         }
 
+    
+
         public ActionResult About()
         {
             ViewBag.Title = DateTime.Now.Second;
@@ -29,6 +31,19 @@ namespace Sample.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Flushes an alternative header if this pages is using an alternative layout (master page).
+        /// </summary>
+        /// <returns></returns>
+        [FlushHead(Title = "About Alternative", HeaderName = "_Head_Alternative")]
+        public ActionResult AboutUs()
+        {
+            Thread.Sleep(2000);
+
+            return View();
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Contact(string name)
@@ -36,15 +51,15 @@ namespace Sample.Controllers
             return Content("Yey");
         }
 
+     
+        //[HttpGet, FlushHead(Title = "I am flushed", FlushAntiForgeryToken = true)]
+        //public ActionResult Contact()
+        //{
+        //    return View();
+        //}
+    
 
-        [HttpGet, FlushHead(Title = "I am flushed", FlushAntiForgeryToken = true)]
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
-
-/*
+        /*
         [HttpGet]
         public ActionResult Contact()
         {
