@@ -6,6 +6,7 @@ namespace CourtesyFlush
     public class FlushHeadAttribute : ActionFilterAttribute
     {
         public string Title { get; set; }
+        public string HeaderName { get; set; }
 #if NET45
         public bool FlushAntiForgeryToken { get; set; }
 #endif
@@ -28,9 +29,9 @@ namespace CourtesyFlush
             if (_viewDataFunction != null)
                 controller.ViewData = _viewDataFunction(filterContext.ActionDescriptor);
 #if NET45            
-            controller.FlushHead(Title, null, FlushAntiForgeryToken);
+            controller.FlushHead(Title, null, FlushAntiForgeryToken, HeaderName);
 #else
-            controller.FlushHead(Title, null);
+            controller.FlushHead(Title, null, HeaderName);
 #endif
         }
     }

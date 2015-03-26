@@ -8,8 +8,16 @@ namespace System.Web.WebPages
     {
         public static MvcHtmlString FlushHead(this HtmlHelper html)
         {
+            return FlushHead(html, null);
+        }
+
+        public static MvcHtmlString FlushHead(this HtmlHelper html, string headername)
+        {
+            if (String.IsNullOrWhiteSpace(headername))
+                headername = "_Head";
+
             if (!html.ViewData.ContainsKey("HeadFlushed"))
-                return html.Partial("_Head");
+                return html.Partial(headername);
 
             return new MvcHtmlString(string.Empty);
         }
