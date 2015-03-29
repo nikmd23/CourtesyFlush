@@ -36,6 +36,7 @@ namespace CourtesyFlush
             if (model != null)
                 controller.ViewData.Model = model;
 
+            //If there is no special header layout page take the default page.
             if (String.IsNullOrWhiteSpace(headername))
                 headername = "_Head";
 
