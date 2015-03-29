@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using CourtesyFlush;
-using Sample.Properties;
 
 namespace Sample.Controllers
 {
@@ -38,18 +37,6 @@ namespace Sample.Controllers
         /// <returns></returns>
         [FlushHead(Title = "About Alternative", HeaderName = "_Head_Alternative")]
         public ActionResult AboutUs()
-        {
-            Thread.Sleep(2000);
-
-            return View();
-        }
-
-        /// <summary>
-        /// Flushes the default header with title Attribute from the resource file. 
-        /// </summary>
-        /// <returns></returns>
-        [FlushHead(TitleResourceName = "mytitlefromresources", TitleResourceType = typeof(Resources))]
-        public ActionResult Title()
         {
             Thread.Sleep(2000);
 
