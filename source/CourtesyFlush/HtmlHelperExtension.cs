@@ -4,6 +4,8 @@ using CourtesyFlush;
 
 namespace System.Web.WebPages
 {
+    using System.Runtime.CompilerServices;
+
     public static class HtmlHelperExtension
     {
         public static MvcHtmlString FlushHead(this HtmlHelper html)
@@ -26,6 +28,12 @@ namespace System.Web.WebPages
         public static MvcHtmlString FlushedAntiForgeryToken(this HtmlHelper html)
         {
             var token = html.ViewContext.HttpContext.Items[ControllerBaseExtension.FlushedAntiForgeryTokenKey] as string;
+
+            if (string.IsNullOrEmpty(token))
+            {
+                // Fall back to the standard AntiForgeryToken if no FlushedAntiForgeryToken exists.
+                return html.AntiForgeryToken();
+            }
 
             var tag = new TagBuilder("input");
             tag.Attributes["type"] = "hidden";
