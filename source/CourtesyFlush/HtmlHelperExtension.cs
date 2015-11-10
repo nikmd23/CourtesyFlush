@@ -4,8 +4,6 @@ using CourtesyFlush;
 
 namespace System.Web.WebPages
 {
-    using System.Runtime.CompilerServices;
-
     public static class HtmlHelperExtension
     {
         public static MvcHtmlString FlushHead(this HtmlHelper html)
