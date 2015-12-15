@@ -66,7 +66,10 @@ namespace CourtesyFlush
             string cookieToken, formToken;
             var context = controller.ControllerContext.HttpContext;
 
-            AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            var oldCookie = context.Request.Cookies[AntiForgeryConfig.CookieName];
+            var oldCookieToken = oldCookie != null ? oldCookie.Value : null;
+
+            AntiForgery.GetTokens(oldCookieToken, out cookieToken, out formToken);
             context.Items[FlushedAntiForgeryTokenKey] = formToken;
 
             if (AntiForgeryConfig.RequireSsl && !context.Request.IsSecureConnection)
@@ -76,7 +79,11 @@ namespace CourtesyFlush
             }
 
             var response = context.Response;
-            response.Cookies.Set(new HttpCookie(AntiForgeryConfig.CookieName, cookieToken) {HttpOnly = true});
+            
+            if (!string.IsNullOrEmpty(cookieToken))
+            {
+                response.Cookies.Set(new HttpCookie(AntiForgeryConfig.CookieName, cookieToken) { HttpOnly = true });
+            }
 
             if (!AntiForgeryConfig.SuppressXFrameOptionsHeader)
             {

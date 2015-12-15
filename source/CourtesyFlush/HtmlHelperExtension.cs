@@ -27,6 +27,12 @@ namespace System.Web.WebPages
         {
             var token = html.ViewContext.HttpContext.Items[ControllerBaseExtension.FlushedAntiForgeryTokenKey] as string;
 
+            if (string.IsNullOrEmpty(token))
+            {
+                // Fall back to the standard AntiForgeryToken if no FlushedAntiForgeryToken exists.
+                return html.AntiForgeryToken();
+            }
+
             var tag = new TagBuilder("input");
             tag.Attributes["type"] = "hidden";
             tag.Attributes["name"] = "__RequestVerificationToken";
