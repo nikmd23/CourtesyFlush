@@ -38,7 +38,7 @@ namespace System.Web.WebPages
             tag.Attributes["name"] = "__RequestVerificationToken";
             tag.Attributes["value"] = token;
 
-            return new MvcHtmlString(tag.ToString());
+            return new MvcHtmlString(tag.ToString(TagRenderMode.SelfClosing));
         }
 #endif
     }
